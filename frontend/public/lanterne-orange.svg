@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 183.78 431.14">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #1e1b3d;
+        stroke-miterlimit: 10;
+        stroke-width: 2.89px;
+      }
+
+      .cls-2 {
+        fill: #1e1b3d;
+      }
+
+      .cls-3 {
+        fill: url(#Dégradé_sans_nom_10);
+      }
+    </style>
+    <linearGradient id="Dégradé_sans_nom_10" data-name="Dégradé sans nom 10" x1="0" y1="233.23" x2="183.78" y2="233.23" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e2221a"/>
+      <stop offset="1" stop-color="#de4b12"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-2" x="88.56" width="4" height="313.99"/>
+  <rect class="cls-2" x="60.33" y="313.66" width="2.04" height="117.15"/>
+  <rect class="cls-2" x="70.66" y="313.66" width="2.04" height="117.15"/>
+  <rect class="cls-2" x="80.01" y="313.66" width="2.04" height="117.15"/>
+  <rect class="cls-2" x="89.86" y="313.66" width="2.04" height="117.15"/>
+  <rect class="cls-2" x="99.7" y="313.66" width="2.04" height="117.15"/>
+  <rect class="cls-2" x="109.54" y="313.99" width="2.04" height="117.15"/>
+  <rect class="cls-2" x="119.06" y="313.66" width="2.04" height="117.15"/>
+  <rect class="cls-2" x="58.08" y="300.62" width="64.96" height="13.37"/>
+  <circle class="cls-2" cx="90.85" cy="112.15" r="10.46"/>
+  <rect class="cls-2" x="70.55" y="142.9" width="40.68" height="21.82"/>
+  <rect class="cls-3" x="0" y="164.72" width="183.78" height="137.01" rx="68.51" ry="68.51"/>
+  <rect class="cls-2" x="90.11" y="157" width="2.49" height="147.93" transform="translate(182.71 461.93) rotate(-180)"/>
+  <path class="cls-1" d="M86.02,160.09c-16.8,19.95-22.38,47.45-20.67,73.47,1.71,26.02,10,51.1,18.22,75.85"/>
+  <path class="cls-1" d="M99.06,305.63c16.8-19.95,22.38-47.45,20.67-73.47s-10-51.1-18.22-75.85"/>
+  <path class="cls-1" d="M77.13,163.2c-16.98,4.06-34.34,12.88-44.65,27.23s-14,33.26-9.85,50.44c3.18,13.15,4.54,23.58,13.56,35.56,8.14,10.81,14.59,18.06,25.15,26.52"/>
+  <path class="cls-1" d="M105.75,164.38c21.72,4.14,41.03,19.37,50.11,39.53,9.08,20.16,7.68,44.71-3.63,63.72-9.71,16.33-16.87,26.61-33.18,36.36"/>
+</svg>

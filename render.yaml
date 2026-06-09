@@ -1,0 +1,72 @@
+# ── Render Blueprint — Mémoires du Vietnam ────────────────────────────────────
+# Déploie Directus + PostgreSQL sur Render en une commande.
+# Doc : https://render.com/docs/blueprint-spec
+
+databases:
+  - name: directus-db
+    databaseName: directus
+    user: directus
+    plan: free          # PostgreSQL gratuit (90 jours, puis ~7$/mois)
+    region: frankfurt   # le plus proche de la France
+
+services:
+  - type: web
+    name: directus-vietnam
+    runtime: image
+    image:
+      url: docker.io/directus/directus:11.14.1
+    plan: free          # Free tier — cold start ~30s après inactivité
+    region: frankfurt
+    healthCheckPath: /server/health
+
+    disk:
+      name: directus-uploads
+      mountPath: /directus/uploads
+      sizeGB: 1         # Nécessite plan payant (Starter ~7$/mois) pour la persistence
+
+    envVars:
+      # ── Base de données (auto-injectée depuis le service PostgreSQL) ───────
+      - key: DB_CLIENT
+        value: pg
+      - key: DB_HOST
+        fromDatabase:
+          name: directus-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: directus-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: directus-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: directus-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: directus-db
+          property: password
+
+      # ── Sécurité ──────────────────────────────────────────────────────────
+      - key: SECRET
+        generateValue: true   # Render génère un secret aléatoire sécurisé
+
+      # ── Admin (à changer après premier déploiement !) ──────────────────────
+      - key: ADMIN_EMAIL
+        value: admin@vietnam.local
+      - key: ADMIN_PASSWORD
+        value: Vietnam2024!
+
+      # ── CORS — autorise Vercel + dev local ────────────────────────────────
+      - key: CORS_ENABLED
+        value: "true"
+      - key: CORS_ORIGIN
+        value: "true"   # Accepte toutes les origines (à restreindre après)
+
+      # ── Divers ────────────────────────────────────────────────────────────
+      - key: WEBSOCKETS_ENABLED
+        value: "true"
+      - key: PUBLIC_URL
+        value: https://directus-vietnam.onrender.com   # ← mettre ta vraie URL après déploiement

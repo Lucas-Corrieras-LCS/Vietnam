@@ -1,0 +1,14 @@
+# deps
+/node_modules
+
+# build output
+/.next/
+/out/
+
+# env (ne jamais commit les secrets)
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Variables ──────────────────────────────────────────────────────────────── */
+:root {
+  --navy:    #0C0A40;
+  --violet:  #512DB9;
+  --rouge:   #F22222;
+  --rose:    #F28DB2;
+  --lavande: #E7D5F2;
+  --surface: #141158;   /* cards — perceptiblement plus claires que bg */
+  --surface2:#1C1870;   /* hover surface */
+  --nav-h:   72px;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--navy);
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(81,45,185,0.12) 0%, transparent 70%);
+  color: var(--lavande);
+  font-family: var(--font-inter, system-ui, sans-serif);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: rgba(81,45,185,0.5); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--rose); }
+
+::selection { background: var(--violet); color: var(--lavande); }
+
+/* ── Pattern — petits points discrets ──────────────────────────────────────── */
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(242,141,178,0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Pattern — grille fine ──────────────────────────────────────────────────── */
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(81,45,185,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(81,45,185,0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* ── Pattern — losanges (motif traditionnel) ────────────────────────────────── */
+.pattern-diamond {
+  background-image:
+    linear-gradient(45deg,  rgba(242,141,178,0.08) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(242,141,178,0.08) 25%, transparent 25%),
+    linear-gradient(45deg,  transparent 75%, rgba(242,141,178,0.08) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(242,141,178,0.08) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* ── Pattern — vagues Seigaiha (fond héros) ────────────────────────────────── */
+.pattern-wave {
+  background-image:
+    radial-gradient(circle at 50% 0%,   transparent 62%, rgba(81,45,185,0.1) 62%, rgba(81,45,185,0.1) 72%, transparent 72%),
+    radial-gradient(circle at 0%   50%, transparent 62%, rgba(81,45,185,0.1) 62%, rgba(81,45,185,0.1) 72%, transparent 72%),
+    radial-gradient(circle at 100% 50%, transparent 62%, rgba(81,45,185,0.1) 62%, rgba(81,45,185,0.1) 72%, transparent 72%),
+    radial-gradient(circle at 50% 100%, transparent 62%, rgba(81,45,185,0.1) 62%, rgba(81,45,185,0.1) 72%, transparent 72%);
+  background-size: 48px 48px;
+}
+
+/* ── Surface (card bg) ──────────────────────────────────────────────────────── */
+.surface {
+  background-color: var(--surface);
+}
+.surface-hover {
+  transition: background-color 0.25s ease;
+}
+.surface-hover:hover {
+  background-color: var(--surface2);
+}
+
+/* ── Glass card ─────────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(231, 213, 242, 0.1);
+}
+.glass-hover {
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-hover:hover {
+  background: rgba(81, 45, 185, 0.1);
+  border-color: rgba(242, 141, 178, 0.25);
+  box-shadow: 0 12px 40px rgba(12, 10, 64, 0.5);
+}
+
+/* ── Gradient text ──────────────────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(120deg, var(--rose) 0%, var(--lavande) 55%, rgba(81,45,185,0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-fire {
+  background: linear-gradient(120deg, var(--rouge) 0%, var(--rose) 55%, var(--lavande) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Underline animé ────────────────────────────────────────────────────────── */
+.underline-anim {
+  position: relative;
+}
+.underline-anim::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--rose);
+  transition: width 0.35s ease;
+}
+.underline-anim:hover::after { width: 100%; }
+
+/* ── Parallax ───────────────────────────────────────────────────────────────── */
+.parallax-bg { will-change: transform; transform: translateZ(0); }
+
+/* ── Timeline ───────────────────────────────────────────────────────────────── */
+.timeline-line {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(81,45,185,0.6) 20%,
+    rgba(242,34,34,0.5) 60%,
+    rgba(242,141,178,0.4) 85%,
+    transparent 100%
+  );
+}
+
+/* ── Scroll reveal ──────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ── Glow doux ──────────────────────────────────────────────────────────────── */
+.glow-rouge  { box-shadow: 0 0 28px rgba(242, 34, 34, 0.35); }
+.glow-violet { box-shadow: 0 0 28px rgba(81, 45, 185, 0.35); }
+.glow-rose   { box-shadow: 0 0 28px rgba(242, 141, 178, 0.25); }
+
+/* ── Divider gradient ───────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(231,213,242,0.18) 40%, rgba(231,213,242,0.18) 60%, transparent 100%);
+}
+
+/* ── Sections teintées — alternance rose / lavande ──────────────────────────── */
+.section-rose {
+  background: linear-gradient(180deg,
+    rgba(242,141,178,0.07) 0%,
+    rgba(242,141,178,0.04) 60%,
+    transparent 100%
+  );
+}
+.section-lavande {
+  background: linear-gradient(180deg,
+    rgba(231,213,242,0.08) 0%,
+    rgba(231,213,242,0.04) 60%,
+    transparent 100%
+  );
+}
+
+/* ── Section claire (cassure de rythme) ─────────────────────────────────────── */
+.section-light {
+  background: linear-gradient(180deg, rgba(231,213,242,0.04) 0%, transparent 100%);
+}
+
+/* ── Card border gradient hover ─────────────────────────────────────────────── */
+.card-border {
+  position: relative;
+}
+.card-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--violet), var(--rouge), var(--rose));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.card-border:hover::before { opacity: 1; }
+
+/* ── Lanterne — balancement depuis le point d'attache haut ─────────────────── */
+@keyframes lantFloat {
+  0%   { transform: translateY(0px)   rotate(-2deg); }
+  25%  { transform: translateY(-7px)  rotate(0deg);  }
+  50%  { transform: translateY(-12px) rotate(2deg);  }
+  75%  { transform: translateY(-6px)  rotate(0deg);  }
+  100% { transform: translateY(0px)   rotate(-2deg); }
+}
+
+/* ── Animation keyframes ────────────────────────────────────────────────────── */
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes glowPulse {
+  0%,100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+@keyframes lineGrow {
+  from { transform: scaleY(0); transform-origin: top; }
+  to   { transform: scaleY(1); transform-origin: top; }
+}
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}

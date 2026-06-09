@@ -1,0 +1,40 @@
+# ── Dépendances ──────────────────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+
+# ── Build Next.js ─────────────────────────────────────────────────────────────
+frontend/.next/
+frontend/out/
+frontend/tsconfig.tsbuildinfo
+
+# ── Données Directus (générées localement, ne pas versionner) ─────────────────
+directus/database/
+directus/uploads/
+directus/extensions/
+
+# ── Variables d'environnement (secrets) — .env.example est versionné ─────────
+.env
+.env.local
+.env.production
+.env*.local
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+# NE PAS ignorer .env.example (template public, sans secrets)
+!.env.example
+!frontend/.env.example
+
+# ── OS / Éditeurs ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── Images Directus (dossier de travail local) ────────────────────────────────
+image Directus/

@@ -1,0 +1,19 @@
+services:
+  directus:
+    image: directus/directus:11.14.1
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./directus/database:/directus/database
+      - ./directus/uploads:/directus/uploads
+      - ./directus/extensions:/directus/extensions
+    environment:
+      SECRET: "memoires-vietnam-secret-dev-only"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
+      ADMIN_EMAIL: "admin@vietnam.local"
+      ADMIN_PASSWORD: "Vietnam2024!"
+      # CORS — accepte localhost dev + Vercel
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "true"
