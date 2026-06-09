@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 // ── Génération statique ───────────────────────────────────────────────────────
 export async function generateStaticParams() {
   const slugs = await getAllPeriodeSlugs();
+  // Si Directus est injoignable au build, on retourne un slug fantôme
+  // pour éviter l'erreur Next.js "missing generateStaticParams"
+  if (slugs.length === 0) return [{ slug: "__placeholder__" }];
   return slugs.map((slug) => ({ slug }));
 }
 
